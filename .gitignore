@@ -1,0 +1,13 @@
+result
+.vscode
+target
+.direnv
+.qmlls.ini
+.env
+secret
+.secret
+local
+.local
+res
+.res
+data

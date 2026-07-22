@@ -1,0 +1,23 @@
+{
+  description = "NixOS CLI tool";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.flake-utils.url = "github:numtide/flake-utils";
+  
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      devShell = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          rustc
+          cargo
+          # clippy
+          # rustfmt
+          # rust-analyzer
+        ];
+      };
+
+      packages.default = pkgs.callPackage ./default.nix {};
+      packages.bare = pkgs.callPackage ./bare.nix {};
+    });
+}
