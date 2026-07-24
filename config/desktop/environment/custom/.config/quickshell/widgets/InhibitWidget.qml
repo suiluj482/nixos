@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
+import Quickshell.Wayland
 import "../core"
 
 Item {
@@ -12,10 +13,16 @@ Item {
 
   // --- state ---
   property bool sleepBlocked: false
+  property bool allowIdle: false
   property var inhibitors: []
   property int timerDuration: 0
   property int timerRemaining: 0
   property bool timerActive: false
+
+  IdleMonitor {
+      id: idle
+      timeout: 250
+  }
 
   readonly property var presets: [
     { label: "30m", seconds: 1800 },
@@ -48,10 +55,17 @@ Item {
     countdownTimer.stop()
   }
 
+  onAllowIdleChanged: {
+    if (sleepBlocked) {
+      inhibitProcess.running = false
+      inhibitProcess.running = true
+    }
+  }
+
   // --- logic ---
   Process {
     id: inhibitProcess
-    command: ["systemd-inhibit", "--what=sleep", "--who=quickshell", "--why=User requested", "sleep", "infinity"]
+    command: ["systemd-inhibit", "--what=" + (root.allowIdle ? "sleep" : "idle"), "--who=quickshell", "--why=User requested", "sleep", "infinity"]
     running: sleepBlocked
   }
 
@@ -130,9 +144,16 @@ Item {
 
     Text {
       text: "\uf186"
-      color: sleepBlocked ? Theme.green : Theme.text
+      color: idle.isIdle ? Theme.red : sleepBlocked ? Theme.green : Theme.text
       font.pixelSize: 14
     }
+
+
+    // Text {
+    //   text: idle.isIdle
+    //   color: sleepBlocked ? Theme.green : Theme.text
+    //   font.pixelSize: 14
+    // }
   }
 
   MouseArea {
@@ -168,11 +189,39 @@ Item {
       anchors.margins: 8
       spacing: 8
 
-      Text {
-        text: "Sleep Inhibitors"
-        color: Theme.text
-        font.bold: true
-        font.pixelSize: 13
+      RowLayout {
+        spacing: 6
+
+        Text {
+          text: "Sleep Inhibitors"
+          color: Theme.text
+          font.bold: true
+          font.pixelSize: 13
+        }
+
+        Item { Layout.fillWidth: true }
+
+        Rectangle {
+            implicitWidth: allowIdleLabel.implicitWidth + 16
+            implicitHeight: 24
+            radius: 4
+            color: root.allowIdle ? Theme.accent : (allowIdleBtnMouse.containsMouse ? Theme.surface1 : Theme.surface0)
+
+            Text {
+              id: allowIdleLabel
+              anchors.centerIn: parent
+              text: "allow idle"
+              color: root.allowIdle ? Theme.crust : Theme.subtext1
+              font.pixelSize: 11
+            }
+
+            MouseArea {
+              id: allowIdleBtnMouse
+              anchors.fill: parent
+              hoverEnabled: true
+              onClicked: root.allowIdle = !root.allowIdle
+            }
+        }
       }
 
       Rectangle {
