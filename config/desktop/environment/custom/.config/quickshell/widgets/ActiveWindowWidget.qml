@@ -31,6 +31,18 @@ Item {
     Rectangle {}
 
     Text {
+      text: "\udb81\ude1e"
+      color: "#cdd6f4"
+      font.pixelSize: 20
+
+      MouseArea {
+          anchors.fill: parent
+          hoverEnabled: true
+          onClicked: NiriService.centerColumn()
+      }
+    }
+
+    Text {
       text: "\ueab9"
       color: "#cdd6f4"
       font.pixelSize: 20

@@ -260,4 +260,7 @@ Singleton {
     function maximizeColumn() {
         return send({ "Action": { "MaximizeColumn": {} } });
     }
+    function centerColumn() {
+        return send({ "Action": { "CenterColumn": {} } });
+    }
 }
