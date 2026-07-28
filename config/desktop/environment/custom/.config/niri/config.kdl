@@ -104,7 +104,8 @@ binds {
     Super+V hotkey-overlay-title="Clipboard History" { spawn "bash" "-c" "cliphist list | fuzzel --dmenu --width 80 | cliphist decode | wl-copy"; }
     // launch
     Mod+T hotkey-overlay-title="Termianl" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Launcher" { spawn "rofi" "-show" "drun"; }
+    // Mod+D hotkey-overlay-title="Launcher" { spawn "rofi" "-show" "drun"; }
+    Mod+D hotkey-overlay-title="Launcher" { spawn "huffi-ui"; }
 
     // default stuff
     Super+Alt+S allow-when-locked=true hotkey-overlay-title="Screenreader" { spawn-sh "pkill orca || exec orca"; }

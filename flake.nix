@@ -27,6 +27,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    huffi = {
+      url = "github:suiluj482/huffi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -36,6 +41,7 @@
     nix-vscode-extensions,
     catppuccin,
     plasma-manager,
+    huffi,
     ...
   } @ inputs: let
     inherit (self) outputs;

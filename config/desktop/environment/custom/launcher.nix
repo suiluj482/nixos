@@ -1,9 +1,17 @@
-{ config, home, pkgs, ... }:
-
+{ inputs, homeContext, ... }:
 {
-} 
-// 
-home {
+  nixpkgs.overlays = [ inputs.huffi.overlays.default ];
+}
+//
+homeContext ({ config, inputs, ...}: {
+
+  imports = [ inputs.huffi.homeManagerModules.huffi ];
+
+  programs.huffi = {
+    enable = true;
+    daemon.enable = true;
+  };
+
 
   programs = {
     rofi = {
@@ -39,4 +47,4 @@ home {
     # fuzzel
   };
 
-}
+})
