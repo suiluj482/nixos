@@ -13,8 +13,9 @@ home {
       #!/bin/bash
       pkg=$1
       shift 1
-      extra_args="$@"
-      nix-shell -p $pkg --command "$pkg $extra_args"
+      # extra_args="$@"
+      # nix-shell -p $pkg --command "$pkg $extra_args"
+      nix run nixpkgs#$pkg -- "$@"
     '')
     (pkgs.callPackage "${self}/scripts/nixos-cli" { 
       paths = paths; 

@@ -39,6 +39,12 @@ home {
         Path=${paths.data}/browser/firefox/banking
         Default=0
 
+        [Profile2]
+        Name=drm
+        IsRelative=0
+        Path=${paths.data}/browser/firefox/drm
+        Default=0
+
 
         [Profile3]
         Name=template

@@ -77,6 +77,8 @@ home {
     unzip
     zip
 
+    # witr # trace processes
+
     # security, sync, backup
     # syncthing
     pika-backup

@@ -22,13 +22,13 @@ Item {
     anchors.centerIn: parent
     spacing: 8
 
-    Text {
-      text: NiriService.windowDisplayName(NiriService.windows[NiriService.focusedWindowId])
-      color: "#cdd6f4"
-      font.pixelSize: 16
-    }
+    // Text {
+    //   text: NiriService.windowDisplayName(NiriService.windows[NiriService.focusedWindowId])
+    //   color: "#cdd6f4"
+    //   font.pixelSize: 16
+    // }
 
-    Rectangle {}
+    // Rectangle {}
 
     Text {
       text: "\udb81\ude1e"

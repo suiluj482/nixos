@@ -8,6 +8,17 @@
     ];
 
     nix.settings = {
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://suiluj482.cachix.org"
+      ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "suiluj482.cachix.org-1:XeMeXzHH4JMCVJ6N115eoFMdpHakQtLlGXGW1Ts5WSE="
+      ];
+    };
+
+    nix.settings = {
         experimental-features = "nix-command flakes";
         auto-optimise-store = true;
     };

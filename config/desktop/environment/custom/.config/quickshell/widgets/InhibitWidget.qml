@@ -25,6 +25,7 @@ Item {
   }
 
   readonly property var presets: [
+    { label: "15m", seconds: 900 },
     { label: "30m", seconds: 1800 },
     { label: "1h",  seconds: 3600 },
     { label: "2h",  seconds: 7200 },

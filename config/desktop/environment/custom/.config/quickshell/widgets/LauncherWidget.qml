@@ -40,7 +40,7 @@ Item {
     anchors.fill: parent
     hoverEnabled: true
     onClicked: {
-      Quickshell.execDetached(["rofi", "-show", "drun"])
+      Quickshell.execDetached(["huffi-ui"])
     }
   }
 }

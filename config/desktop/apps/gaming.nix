@@ -13,7 +13,7 @@
 home {
   home.packages = with pkgs; [
     steam
-    mindustry
+    # mindustry
     # lutris
   ];
 }
