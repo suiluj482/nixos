@@ -105,7 +105,7 @@ binds {
     // launch
     Mod+T hotkey-overlay-title="Termianl" { spawn "kitty"; }
     // Mod+D hotkey-overlay-title="Launcher" { spawn "rofi" "-show" "drun"; }
-    Mod+D hotkey-overlay-title="Launcher" { spawn "huffi-ui"; }
+    Mod+D hotkey-overlay-title="Launcher" { spawn "huffi"; }
 
     // default stuff
     Super+Alt+S allow-when-locked=true hotkey-overlay-title="Screenreader" { spawn-sh "pkill orca || exec orca"; }

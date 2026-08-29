@@ -9,7 +9,6 @@ homeContext ({ config, inputs, ...}: {
 
   programs.huffi = {
     enable = true;
-    daemon.enable = true;
   };
 
 
