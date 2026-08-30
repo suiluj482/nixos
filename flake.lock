@@ -67,11 +67,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1788122787,
-        "narHash": "sha256-MKYzB3+fTB2GEsuwkPgmrz9hkizMj+xt+mN0mn72GQA=",
+        "lastModified": 1788123093,
+        "narHash": "sha256-uMgO+wXT5GeS9EXi8O5db0F6W/SDvddwkhFmpskQRvE=",
         "owner": "suiluj482",
         "repo": "huffi",
-        "rev": "ee10a3d19fa33a4c3d0fdb0a4c1450df1374b008",
+        "rev": "a7b76bc99027cbe766f9fce8de2ddefd9cc584ba",
         "type": "github"
       },
       "original": {
