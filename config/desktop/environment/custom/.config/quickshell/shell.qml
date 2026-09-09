@@ -13,5 +13,6 @@ Scope {
 
   PowerMenu {}
   OSD {}
+  BatteryWarning {}
 
 }

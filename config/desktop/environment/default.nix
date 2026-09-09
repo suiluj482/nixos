@@ -26,7 +26,7 @@
 home {
 
   home.packages = with pkgs; [ 
-    gcr # Provides org.gnome.keyring.SystemPrompter
+    gcr_4 # Provides org.gnome.keyring.SystemPrompter
   ]; 
   services = {
     gnome-keyring = {

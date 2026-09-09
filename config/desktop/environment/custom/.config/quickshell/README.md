@@ -11,6 +11,7 @@ A [Quickshell](https://github.com/Quickshell/Quickshell)-based desktop shell con
 
 - **PowerMenu** — Full-screen overlay with action tiles: shutdown, reboot, suspend, lock, logout, UEFI firmware, Windows reboot, and NixOS rebuild. Keyboard-navigable with hotkeys.
 - **OSD** — Auto-hiding volume on-screen display, triggered on volume/mute changes.
+- **BatteryWarning** — Auto-hiding banner (laptop only) when the battery drops below 20% while discharging, with escalating warnings at 10% and 5%.
 
 ## Widgets
 
