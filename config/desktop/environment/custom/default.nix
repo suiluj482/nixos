@@ -11,6 +11,7 @@
     ./clipboard.nix
     ./quickshell.nix
     ./defaultApplications.nix
+    ./opentabletdriver.nix
   ];
 
   # wm: niri

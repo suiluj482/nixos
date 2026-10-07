@@ -13,4 +13,4 @@ My current desktop setup uses:
 
 - **Compositor:** Niri
 - **Bar:** QuickShell
-- **Launcher:** Rofi
+- **Launcher:** Huffi

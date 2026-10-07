@@ -99,7 +99,7 @@ home {
       brave
 
       # Uni
-      zotero
+      # zotero
       zoom-us
       onlyoffice-desktopeditors
       
@@ -114,6 +114,7 @@ home {
       gnome-sound-recorder # recorder
       nautilus # file browser
       evince # pdf viewer
+      gnome-disk-utility
 
       #security, sync, backup
       keepassxc
@@ -122,12 +123,13 @@ home {
       nextcloud-client
 
       #sozial
-      element-desktop
+      stable.element-desktop
       signal-desktop
       # spotify
       legcord
 
       gimp
+      xournalpp
 
       # kicad
       unityhub

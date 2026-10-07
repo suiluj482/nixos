@@ -201,8 +201,8 @@ fn clear() -> Result<()> {
 }
 
 fn garbage() -> Result<()> {
-  run(&mut Command::new("home-manager").args(["expire-generations", "-1", "days"]))?;
-  run(&mut Command::new("sudo").args(["nix-collect-garbage", "--delete-old"]))?;
+  run(&mut Command::new("home-manager").args(["expire-generations", "-1days"]))?;
+  run(&mut Command::new("nix-collect-garbage").args(["--delete-old"]))?;
   Ok(())
 }
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, home, inputs, ...}:
+{ config, lib, pkgs, home, inputs, system, ...}:
 
 {
     imports = [
@@ -25,7 +25,13 @@
 
     nixpkgs = {
         overlays = [ 
-            inputs.nix-vscode-extensions.overlays.default 
+            inputs.nix-vscode-extensions.overlays.default
+            (final: prev: {
+              stable = import inputs.nixpkgs-stable { 
+                inherit system; 
+                config.allowUnfree = true;
+              };
+            })
         ];
         config = {
             allowUnfree = true;
@@ -40,7 +46,7 @@
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nix.nixPath = ["/etc/nix/path"];
+    nix.settings.nix-path = ["/etc/nix/path"];
     environment.etc =
         lib.mapAttrs'
             (name: value: {

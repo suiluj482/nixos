@@ -4,6 +4,7 @@
   inputs = {
     # https://github.com/NixOS/nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     # https://github.com/nix-community/home-manager
     home-manager = {
@@ -37,6 +38,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     nix-vscode-extensions,
     catppuccin,
