@@ -2,17 +2,17 @@
 
 {
   security.sudo = {
-    # extraRules = [
-    #   {
-    #     users = [ username ];
-    #     commands = [
-    #       {
-    #         command = "${pkgs.efibootmgr}/bin/efibootmgr -n 0";
-    #         options = [ "NOPASSWD" ];
-    #       }
-    #     ];
-    #   }
-    # ];
+    extraRules = [
+      {
+        users = [ username ];
+        commands = [
+          {
+            command = "/run/current-system/sw/bin/efibootmgr -n 0";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
     extraConfig = ''
       Defaults pwfeedback
     '';

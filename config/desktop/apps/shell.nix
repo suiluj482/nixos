@@ -3,7 +3,7 @@
 home {
   home.packages = with pkgs; [
     (pkgs.writeShellScriptBin "rebootWin" ''
-      nix-shell -p efibootmgr --run "sudo efibootmgr -n 0" && reboot
+      sudo efibootmgr -n 0 && reboot
     '')
 
     (pkgs.writeShellScriptBin "zmk" ''

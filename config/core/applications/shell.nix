@@ -23,6 +23,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    efibootmgr
     git
     kitty
     ripgrep
@@ -72,7 +73,6 @@ home {
 
   home.packages = with pkgs; [
     #system
-    efibootmgr
     
     unzip
     zip
