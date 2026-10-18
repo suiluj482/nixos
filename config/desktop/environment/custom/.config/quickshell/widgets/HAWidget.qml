@@ -45,7 +45,7 @@ Loader {
           id: mouseArea
           anchors.fill: parent
           hoverEnabled: true
-          onClicked: popup.visible = !popup.visible
+          onClicked: PopupState.toggle("ha")
         }
 
         PopupWindow {
@@ -56,6 +56,9 @@ Loader {
           implicitWidth: 320
           implicitHeight: content.implicitHeight + 16
           color: "transparent"
+
+          Component.onCompleted: PopupState.register("ha", popup)
+          Component.onDestruction: PopupState.unregister("ha")
 
           Rectangle {
             anchors.fill: parent

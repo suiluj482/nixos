@@ -104,7 +104,7 @@ Loader {
             anchors.fill: parent
             hoverEnabled: true
 
-            onClicked: popup.visible = !popup.visible
+            onClicked: PopupState.toggle("power")
         }
 
         // PopUp
@@ -120,6 +120,9 @@ Loader {
             implicitHeight: content.implicitHeight + 16
 
             color: "transparent"
+
+            Component.onCompleted: PopupState.register("power", popup)
+            Component.onDestruction: PopupState.unregister("power")
 
             Rectangle {
                 anchors.fill: parent

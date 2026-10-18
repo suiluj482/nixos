@@ -99,7 +99,7 @@ Item {
 
         onClicked: (mouse) => {
             if (mouse.button === Qt.RightButton) {
-                popup.visible = !popup.visible
+                PopupState.toggle("volume")
             } else {
                 root.toggleMute()
             }
@@ -120,6 +120,9 @@ Item {
         implicitWidth: 300
         implicitHeight: content.implicitHeight + 16
         color: "transparent"
+
+        Component.onCompleted: PopupState.register("volume", popup)
+        Component.onDestruction: PopupState.unregister("volume")
 
         Rectangle {
             anchors.fill: parent

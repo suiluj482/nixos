@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
 import "../core"
+import "../services"
 
 Item {
   id: root
@@ -161,7 +162,7 @@ Item {
     id: mouseArea
     anchors.fill: parent
     hoverEnabled: true
-    onClicked: popup.visible = !popup.visible
+    onClicked: PopupState.toggle("inhibit")
   }
 
   PopupWindow {
@@ -172,6 +173,9 @@ Item {
     implicitWidth: 320
     implicitHeight: content.implicitHeight + 16
     color: "transparent"
+
+    Component.onCompleted: PopupState.register("inhibit", popup)
+    Component.onDestruction: PopupState.unregister("inhibit")
 
     onVisibleChanged: {
       if (visible) refreshInhibitors()

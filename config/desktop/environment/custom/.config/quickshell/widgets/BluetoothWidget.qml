@@ -4,6 +4,7 @@ import QtQuick.Controls.Basic
 import Quickshell
 import Quickshell.Bluetooth
 import "../core"
+import "../services"
 
 Loader {
     active: Bluetooth.defaultAdapter
@@ -61,7 +62,7 @@ Loader {
             id: mouseArea
             anchors.fill: parent
             hoverEnabled: true
-            onClicked: popup.visible = !popup.visible
+            onClicked: PopupState.toggle("bluetooth")
         }
 
         // -- Popup ---------------------------------------------------------------
@@ -73,6 +74,9 @@ Loader {
             implicitWidth: 320
             implicitHeight: content.implicitHeight + 16
             color: "transparent"
+
+            Component.onCompleted: PopupState.register("bluetooth", popup)
+            Component.onDestruction: PopupState.unregister("bluetooth")
 
             Rectangle {
                 anchors.fill: parent

@@ -86,6 +86,12 @@ PanelWindow {
   // ── Visibilty ───
   visible: PowerMenuState.visible
 
+  // Dismiss any open bar popup when the overlay opens.
+  onVisibleChanged: {
+      if (visible)
+          PopupState.closeAll()
+  }
+
   IpcHandler {
       target: "powerMenu"
 

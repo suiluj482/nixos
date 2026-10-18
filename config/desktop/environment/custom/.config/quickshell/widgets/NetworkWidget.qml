@@ -4,6 +4,7 @@ import QtQuick.Controls.Basic
 import Quickshell
 import Quickshell.Networking
 import "../core"
+import "../services"
 
 Loader {
     active: Networking.devices.values.length > 0
@@ -90,7 +91,7 @@ Loader {
             id: mouseArea
             anchors.fill: parent
             hoverEnabled: true
-            onClicked: popup.visible = !popup.visible
+            onClicked: PopupState.toggle("network")
         }
 
         // -- Popup ---------------------------------------------------------------
@@ -102,6 +103,9 @@ Loader {
             implicitWidth: 340
             implicitHeight: content.implicitHeight + 16
             color: "transparent"
+
+            Component.onCompleted: PopupState.register("network", popup)
+            Component.onDestruction: PopupState.unregister("network")
 
             Rectangle {
                 anchors.fill: parent
